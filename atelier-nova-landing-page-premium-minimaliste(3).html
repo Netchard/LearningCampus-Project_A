@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Nova | Capsule Printemps Urbain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f5;
+            --accent: #d4a574;
+            --text: #333;
+            --light-text: #777;
+            --white: #ffffff;
+            --black: #000000;
+            --font: 'Inter', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font);
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            top: 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .mobile-menu a {
+            margin: 10px 0;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #b88c5a;
+            transform: translateY(-3px);
+        }
+        
+        /* Pourquoi Section */
+        .pourquoi {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .pourquoi h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .avantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .avantage {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .avantage i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .avantage h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .avantage p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Produits Section */
+        .produits {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .produits h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            height: 500px;
+        }
+        
+        .slider {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            gap: 20px;
+            padding-right: 10px;
+        }
+        
+        .slider::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .slider::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .slider::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
+        .slider::-webkit-scrollbar-thumb:hover {
+            background: #b88c5a;
+        }
+        
+        .slider-row {
+            display: flex;
+            gap: 20px;
+            scroll-snap-align: start;
+        }
+        
+        .produit {
+            flex: 0 0 23%;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            scroll-snap-align: start;
+        }
+        
+        .produit:hover {
+            transform: translateY(-10px);
+        }
+        
+        .produit img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .produit-info {
+            padding: 20px;
+        }
+        
+        .produit-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .produit-info p {
+            color: var(--light-text);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .produit-info .prix {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .produit-info .cta-button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        /* Réassurance Section */
+        .reassurance {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .reassurance h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .engagements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .engagement {
+            padding: 20px;
+        }
+        
+        .engagement i {
+            font-size: 30px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .engagement h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .engagement p {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .faq h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 20px;
+        }
+        
+        .faq-answer p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Formulaire Section */
+        .formulaire {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .formulaire h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            background-color: #b88c5a;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            margin-top: 20px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #b88c5a;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .produit {
+                flex: 0 0 48%;
+            }
+            .slider-row {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container nav {
+                display: none;
+            }
+            
+            .burger-menu {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .produit {
+                flex: 0 0 100%;
+            }
+            
+            .slider-row {
+                flex-direction: column;
+            }
+            
+            .slider {
+                height: auto;
+            }
+            
+            .slider-container {
+                height: auto;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ATELIER NOVA</a>
+            <nav>
+                <a href="#pourquoi">Pourquoi ?</a>
+                <a href="#produits">Produits</a>
+                <a href="#reassurance">Réassurance</a>
+                <a href="#faq">FAQ</a>
+                <a href="#formulaire">VIP</a>
+            </nav>
+            <div class="burger-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#pourquoi" onclick="closeMobileMenu()">Pourquoi ?</a>
+            <a href="#produits" onclick="closeMobileMenu()">Produits</a>
+            <a href="#reassurance" onclick="closeMobileMenu()">Réassurance</a>
+            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+            <a href="#formulaire" onclick="closeMobileMenu()">VIP</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Capsule Printemps Urbain</h1>
+            <p>Découvrez une collection unique alliant style minimaliste et matières responsables, produite en Europe en série limitée.</p>
+            <a href="#produits" class="cta-button">Découvrir la collection</a>
+        </div>
+    </section>
+    
+    <section id="pourquoi" class="pourquoi">
+        <div class="container">
+            <h2>Pourquoi la capsule Printemps Urbain ?</h2>
+            <div class="avantages">
+                <div class="avantage">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Non jetable</h3>
+                    <p>Des pièces conçues pour durer, loin de la fast fashion.</p>
+                </div>
+                <div class="avantage">
+                    <i class="fas fa-star"></i>
+                    <h3>Meilleure qualité</h3>
+                    <p>Des matières premium pour un confort et une durabilité optimaux.</p>
+                </div>
+                <div class="avantage">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Origine et traçabilité</h3>
+                    <p>Production 100% européenne, avec une transparence totale sur nos ateliers.</p>
+                </div>
+                <div class="avantage">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Durabilité</h3>
+                    <p>Des matériaux écoresponsables pour un impact environnemental réduit.</p>
+                </div>
+                <div class="avantage">
+                    <i class="fas fa-tag"></i>
+                    <h3>Édition limitée</h3>
+                    <p>Chaque pièce est produite en quantité limitée pour garantir son exclusivité.</p>
+                </div>
+                <div class="avantage">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Design unique</h3>
+                    <p>Un style minimaliste et intemporel, pensé pour le quotidien urbain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="produits" class="produits">
+        <div class="container">
+            <h2>Notre Collection</h2>
+            <div class="slider-container">
+                <div class="slider" id="produitSlider">
+                    <div class="slider-row">
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Hoodie Urbain">
+                            <div class="produit-info">
+                                <h3>Hoodie Urbain</h3>
+                                <p>Coupe oversize, matière douce et respirante.</p>
+                                <p class="prix">129€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2081&q=80" alt="Tee-shirt Minimaliste">
+                            <div class="produit-info">
+                                <h3>Tee-shirt Minimaliste</h3>
+                                <p>100% coton bio, coupe classique.</p>
+                                <p class="prix">69€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Veste Légère">
+                            <div class="produit-info">
+                                <h3>Veste Légère</h3>
+                                <p>Imperméable et légère, idéale pour les saisons intermédiaires.</p>
+                                <p class="prix">179€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Pantalon Cargo">
+                            <div class="produit-info">
+                                <h3>Pantalon Cargo</h3>
+                                <p>Confortable et pratique, avec des poches spacieuses.</p>
+                                <p class="prix">119€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-row">
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ceinture en Cuir">
+                            <div class="produit-info">
+                                <h3>Ceinture en Cuir</h3>
+                                <p>Cuir végétal, ajustable et durable.</p>
+                                <p class="prix">89€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Sac à Dos">
+                            <div class="produit-info">
+                                <h3>Sac à Dos</h3>
+                                <p>Design épuré, compartiments multiples.</p>
+                                <p class="prix">149€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Chaussettes Éco">
+                            <div class="produit-info">
+                                <h3>Chaussettes Éco</h3>
+                                <p>Coton bio, confort absolu.</p>
+                                <p class="prix">29€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Écharpe en Laine">
+                            <div class="produit-info">
+                                <h3>Écharpe en Laine</h3>
+                                <p>Laine recyclée, douce et chaude.</p>
+                                <p class="prix">79€</p>
+                                <a href="#" class="cta-button">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="reassurance" class="reassurance">
+        <div class="container">
+            <h2>Nos Engagements</h2>
+            <div class="engagements">
+                <div class="engagement">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Livraison Rapide</h3>
+                    <p>Livraison sous 48h en Europe.</p>
+                </div>
+                <div class="engagement">
+                    <i class="fas fa-undo"></i>
+                    <h3>Retours Gratuits</h3>
+                    <p>Retours sous 30 jours, gratuits.</p>
+                </div>
+                <div class="engagement">
+                    <i class="fas fa-ruler"></i>
+                    <h3>Guide des Tailles</h3>
+                    <p>Trouvez votre taille idéale.</p>
+                </div>
+                <div class="engagement">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Qualité Garantie</h3>
+                    <p>Des matériaux premium.</p>
+                </div>
+                <div class="engagement">
+                    <i class="fas fa-eye"></i>
+                    <h3>Transparence</h3>
+                    <p>Traçabilité totale de nos produits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>FAQ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels matériaux utilisez-vous ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous utilisons uniquement des matières responsables : coton bio, laine recyclée, et tissus écoresponsables certifiés.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Où sont produits vos vêtements ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tous nos produits sont fabriqués en Europe, dans des ateliers partenaires engagés dans une démarche éthique.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment connaître ma taille ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Consultez notre guide des tailles disponible sur chaque fiche produit pour trouver la taille qui vous correspond.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels sont vos délais de livraison ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous livrons sous 48h en Europe et sous 5 à 7 jours pour les autres destinations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Puis-je retourner un article ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, vous avez 30 jours pour retourner un article non porté et dans son emballage d'origine.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels modes de paiement acceptez-vous ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous acceptons les cartes bancaires, PayPal, et les virements pour les commandes en Europe.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Vos produits sont-ils durables ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nos produits sont conçus pour durer, avec des matériaux de haute qualité et une fabrication soignée.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Proposez-vous des éditions limitées ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, chaque collection est produite en série limitée pour garantir son exclusivité.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment puis-je devenir VIP ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Inscrivez-vous via notre formulaire pour accéder en avant-première à nos collections et bénéficier d'offres exclusives.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Vos produits sont-ils écoresponsables ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, nous nous engageons à réduire notre impact environnemental à chaque étape de la production.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="formulaire" class="formulaire">
+        <div class="container">
+            <h2>Devenez VIP</h2>
+            <div class="form-container">
+                <form id="vipForm">
+                    <div class="form-group">
+                        <label for="prenom">Prénom *</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone (optionnel)</label>
+                        <input type="tel" id="telephone" name="telephone">
+                    </div>
+                    <button type="submit" class="form-submit">Devenir VIP</button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    Merci pour votre inscription ! Vous recevrez un email de confirmation sous peu.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="#">Nos engagements</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Légaux</h3>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">CGV</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Réseaux Sociaux</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir nos dernières actualités.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Atelier Nova. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        // Close Mobile Menu
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = 'none';
+        }
+        
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+        
+        // Form Submission
+        document.getElementById('vipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const prenom = document.getElementById('prenom').value;
+            const email = document.getElementById('email').value;
+            
+            if (!prenom || !email) {
+                alert('Veuillez remplir les champs obligatoires (Prénom et Email).');
+                return;
+            }
+            
+            // Hide form
+            this.style.display = 'none';
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
