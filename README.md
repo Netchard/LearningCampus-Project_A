@@ -7,3 +7,6 @@ Learning Campus - Formation Vide Coding - Projet A - Atelier Nova
 - Sequence 5 - Construire la landing page V2 [Voir la page](./atelier-nova-landing-page-premium-minimaliste(8).html)
 - Sequence 6 - Construire la landing page V3 [Voir la page](./atelier-nova-landing-page-premium-minimaliste(11).html)
   
+# Site généré avec Lovable 
+- [Voir le site](https://urban-capsule-vip.lovable.app/)
+  
